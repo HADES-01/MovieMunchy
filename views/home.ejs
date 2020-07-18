@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+<style>
+    body{
+        background: url("/images/home-background.jpg");
+        background-size: cover;
+    }
+    input[type=text]{
+        width: 80%;
+        position: sticky;
+        float: left;
+        margin-top: -19%;
+        color: white;
+        height: 80px;
+        font-size: 40px;
+        margin-left: 20%;
+        resize: none;
+        background-color: rgba(1,1,1,0.6);
+    }
+    input[type=text]:focus {
+        background-color: rgba(1,1,1,0.6);
+        color: white;
+    }
+</style>
+<div class="container" style="position: center;margin-top: 10%;">
+    <img src="/images/logo.png" height="30%" width="30%" style="margin-left: -10%" alt="">
+    <form class="" action="/result/1">
+      <input class="form-control Search" placeholder="World Of Movies and TV Awaits ...." name="Search" type="text">
+    </form>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+<%- include('partials/slide') %>
+<div class="card">
+    <h3 class="card-header"><%= movieData['totalResults'] %> Results Found !!!</h3>
+    <div class="list-group">
+        <% movieData["Search"].forEach(function (movie) { %>
+            <a href="/full/<%= movie['imdbID'] %>/" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= movie['Title'] %></h5>
+                    <small><%= movie['Year'] %></small>
+                </div>
+            </a>
+        <% })  %>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <% if(no === 1) { %> disabled <% } %>">
+          <a class="page-link" href="/result/<%= no - 1 %>/?Search=<%=query%>" tabindex="-1">Previous</a>
+        </li>
+          <% for(let i = 1; i <= (movieData['totalResults'] / 10) && i <= 20; i++){ %>
+        <li class="page-item <% if(no === i) { %> active <% } %>"><a class="page-link" href="/result/<%= i %>/?Search=<%=query%>"><%= i %></a></li>
+          <% } %>
+        <li class="page-item <% if(no == (movieData['totalResults'] / 10) || no == 20) { %> disabled <% } %>">
+          <a class="page-link" href="/result/<%= no + 1 %>/?Search=<%=query%>">Next</a>
+        </li>
+      </ul>
+    </nav>
+</div>
+<%- include('partials/footer.ejs') %>
+
