@@ -34,6 +34,6 @@ app.get("/full/:id", function (req, res) {
     })
 });
 
-app.listen("3000", function () {
+app.listen(process.env.PORT || "5000", function () {
     console.log("Movie App is Started");
-})
+});
